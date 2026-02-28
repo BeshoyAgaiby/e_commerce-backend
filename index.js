@@ -5,6 +5,8 @@ import dotenv from "dotenv"
 
 // import morgan from 'morgan';
 const app = express()
+console.log("ENV PORT =", process.env.PORT);
+
 const port = process.env.PORT || 3000
 dotenv.config()
 app.use(express.json());
@@ -16,6 +18,8 @@ app.use('/uploads',express.static("uploads")); //to make uploads folder public
 bootstrap(app);
 
 dbConnection();
+
+
 
 
 
