@@ -26,7 +26,12 @@ app.set('query parser', 'extended');//to allow nested query like price[gt]=100
   app.use("/api/v1/orders",orderRouter);
   app.use("/api/v1/logout",logoutRouter);
 
-
+ app.get("/", (req, res) => {
+  res.json({
+    status: "success",
+    message: "E-Commerce API is running 🚀"
+  });
+});
   app.use((req,res,next)=>{
     // res.json({message:`invalid Url`})
     next(new AppError(`invalid Url ${req.originalUrl}`,404))
