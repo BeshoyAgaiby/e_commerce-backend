@@ -12,11 +12,8 @@ app.use(express.json());
 app.use('/uploads',express.static("uploads"));
 
  app.get("/", (req, res) => {
-  res.json({
-    status: "success",
-    message: "E-Commerce API is running 🚀"
-  });
-})
+  res.status(200).send("Server is running 🚀");
+});
 
 bootstrap(app);
 
