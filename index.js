@@ -1,6 +1,6 @@
 import express from 'express'
 import { dbConnection } from './database/dbConnection.js';
-import bootstrap from './src/utilities/bootstrap.js';
+import bootstrap from "./src/utilities/bootstrap.js"
 import dotenv from "dotenv"
 
 dotenv.config()
@@ -10,6 +10,13 @@ const port = process.env.PORT || 3000
 
 app.use(express.json());
 app.use('/uploads',express.static("uploads"));
+
+ app.get("/", (req, res) => {
+  res.json({
+    status: "success",
+    message: "E-Commerce API is running 🚀"
+  });
+})
 
 bootstrap(app);
 
