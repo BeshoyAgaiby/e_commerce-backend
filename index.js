@@ -15,7 +15,18 @@ app.use('/uploads',express.static("uploads")); //to make uploads folder public
 
 bootstrap(app);
 
-dbConnection();
+const startServer = async () => {
+  try {
+    await dbConnection();   // نستنى الاتصال الأول
+    app.listen(port, () =>
+      console.log(`Server running at port ${port}`)
+    );
+  } catch (error) {
+    console.log("Failed to connect DB:", error);
+  }
+};
+
+startServer();
 
 
 
