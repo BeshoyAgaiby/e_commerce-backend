@@ -26,3 +26,5 @@ dbConnection();
 app.listen(port, "0.0.0.0", () => {
   console.log(`server is running at port ${port}`);
 });
+
+startServer();
