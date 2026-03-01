@@ -5,8 +5,6 @@ import dotenv from "dotenv"
 
 // import morgan from 'morgan';
 const app = express()
-console.log("ENV PORT =", process.env.PORT);
-
 const port = process.env.PORT || 3000
 dotenv.config()
 app.use(express.json());
@@ -21,10 +19,4 @@ dbConnection();
 
 
 
-
-
-app.listen(port, "0.0.0.0", () => {
-  console.log(`server is running at port ${port}`);
-});
-
-startServer();
+app.listen(port, () => console.log(`server is running at port ${port}`))
